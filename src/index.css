@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 1rem 2rem -0.4rem hsl(0, 0%, 0%, 0.1);
+    font-family: 'Rubik', sans-serif;
+    color: hsl(0, 0%, 17%);
+    font-size: 18px;
+}
+
