@@ -1,15 +1,18 @@
 import React, { Fragment, useState } from 'react'
 import LocationDefault from './Location Details'
 import axios from 'axios'
+import { useAuth } from '../providers/auth'
 import {ReactComponent as Arrow} from './styles/images/icon-arrow.svg'
 import * as s from './styles/styled-Header'
 
 
-export default function Header({setCurrent}) {
+export default function Header() {
 
   const key = '' //key da API
   const [ip, setIp] = useState('') //armazena o IP digitado pelo usuario
-  const [data, setData] = useState('')
+  const { setCurrent } = useAuth() //recebendo estado da contextAPI
+  const { setData } = useAuth()  //recebendo estado da contextAPI
+
   
   let getIP = async (ip) => {
     let req = await axios.get(`https://geo.ipify.org/api/v1?apiKey=${key}&ipAddress=${ip}`) //requisição para API com IP informado pelo usuario
@@ -30,7 +33,7 @@ export default function Header({setCurrent}) {
               <s.Button onClick={() => getIP(ip)}><Arrow/></s.Button>
             </div>
         </s.HeaderField>
-        <LocationDefault data={data}/> 
+        <LocationDefault/> 
       </Fragment>
     )
 }

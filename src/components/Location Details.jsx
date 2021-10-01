@@ -1,7 +1,11 @@
 import React from 'react'
+import { useAuth } from '../providers/auth'
 import * as s from './styles/styled-LocationDetails'
 
-export default function LocationDefault({data}) { //recebendo objeto da API
+export default function LocationDefault() { //recebendo objeto da API
+
+    const {data} = useAuth() 
+
     return(
         <s.LocationField>
             <div>

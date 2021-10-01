@@ -1,12 +1,12 @@
 import React, { useState, useEffect, Fragment } from 'react'
-
 import Header from './components/Header'
 import Map from './components/Map'
 import * as s from './components/styles/styled-App'
+import { useAuth } from './providers/auth'
 
 function App() {
 
-  const [current, setCurrent] = useState({})
+  const { setCurrent } = useAuth()
   const [location, setLocation] = useState(false)
 
   useEffect(()=> {
@@ -26,8 +26,8 @@ function App() {
 } else {
       return (
         <s.Container>
-          <Header setCurrent={setCurrent}/> 
-          <Map current={current}/>
+          <Header/> 
+          <Map />
         </s.Container>
       );
   }

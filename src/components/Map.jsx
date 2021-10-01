@@ -1,8 +1,11 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet'
+import { useAuth } from '../providers/auth';
 import * as s from './styles/styled-Map'
 
-export default function Map({current}) { //recebendo objeto da API
+export default function Map() { //recebendo objeto da API
+
+  const { current } = useAuth()
 
   function ChangeView(coords) { //função para chamar a render de um "novo mapa" após requisição por IP
     const map = useMap();
